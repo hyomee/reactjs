@@ -24,8 +24,34 @@
   color: white;
 }
 
+
+
 .App-link {
   color: #61dafb;
+}
+
+.userDefine {
+  background:  black;
+  color : red;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 16px;
+}
+
+.baseTitle {
+  background:  black;
+  color : red;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.baseTitle01 {
+  background:  black;
+  color : rgb(10, 235, 66);
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px;
 }
 
 @keyframes App-logo-spin {
