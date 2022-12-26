@@ -211,8 +211,10 @@ const HookMultiState = () => {
 export default HookMultiState;
 ```
 #### 4-1-3. cleanup : 컴포넌트가 언마운트되기 전이나 업데이트 되기 직전에 작업 수헹 
+- 클래스형 : componentWillUnmount 
+- return function이 해당 역활을 하며 useEffect()를 끝내며 실행 하기 때문에 clean-up 함수라 한다.
 ```
 useEffect(() => {
-
+    console.log
 })
 
