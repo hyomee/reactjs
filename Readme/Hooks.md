@@ -115,3 +115,104 @@ const HookMultiState = () => {
 
 export default HookMultiState;
 ```
+### 4. useEffect
+- 기본적으로 랜더링되고 난 직후마다 실행되며, 두번째 파라미터 베열에 무엇을 넣는지에 따라서 실행 조건이 달라짐.
+- 리액트 컴포넌트가 렌더링될 때마다 특정 작업을 수행하도록 설정
+- 클래스 컴포넌트에서 componentDidMount 와 componentDidUpdate를 합친 형태
+- 종류
+  - Clean-Up을 이용하지 않는 Effects
+  - Clean-Up을 이용하는 Effects
+
+![ComponentLifeCycle][../public/img/componentLifeCycle.png]
+
+
+#### 4-1. useEffext 적용
+```
+import React, { useState, useEffect } from 'react';
+
+const HookUseState = () => {
+    const [message, setMessage] = useState('리액트');
+    const [title, setTitle] = useState('리액트..');
+    useEffect( () => {
+        document.title = `${title}`;
+    });
+    return (
+        <div>
+            <p>환영 메세지 : {message}</p>
+            <button onClick = {
+                () => setMessage`--99(message + ' Hook-useState')
+            }>버튼</button>
+            <button onClick = {
+                () => setTitle(message + ' Hook-useEffect')
+            }>UseEffect</button>
+        </div>
+    );
+};
+
+export default HookUseState;
+```
+#### 4-1-1. 최초 한번 적용 하고 싶은 경우 즉 마운트될 때만 실행하고 싶을 때
+useEffect의 두번째 인자에 빈 배열을 추가 함
+```
+const fnTitleView = () => {
+                            console.log('마운트... ')
+                        };
+                        
+useEffect( fnTitleView, []);
+```
+#### 4-1-2. 특정 값이 수정 될 때만 실행 
+- 두번째 파라메터 배열에 useState를 통해서 관리되고 있는 상태, props로 전달받은 값을 넣어 주면 된다.
+- 클래스 형 컴포넌트 : onComponentDidUpdate 
+```
+const fnTitleView = () => {
+    console.log(name)
+};
+    
+useEffect( fnTitleView, [name] );
+```
+- 전체 소스
+```
+import { useState, useEffect } from 'react';
+
+const HookMultiState = () => {
+    // state 변수 선언 
+    const [ name, setName ] = useState('');
+    const [ age, setAge ] = useState('');
+
+    const fnTitleView = () => {
+        console.log(name)
+    };
+    
+    useEffect( fnTitleView, [name] );
+
+    const onChangeName = e => {
+        setName(e.target.value);
+    }
+
+    const onChangeAge = e => {
+        setAge(e.target.value);
+    }
+
+    return (
+        <div>
+            <div>
+                이름 : <input value={name} onChange={onChangeName}/>
+                나이 : <input value={age} onChange={onChangeAge}/>
+            </div>
+            <div>
+                <p>이름 : {name},  나이 : {age}</p>
+            </div>
+                
+        </div>
+    );
+};
+
+
+export default HookMultiState;
+```
+#### 4-1-3. cleanup : 컴포넌트가 언마운트되기 전이나 업데이트 되기 직전에 작업 수헹 
+```
+useEffect(() => {
+
+})
+
