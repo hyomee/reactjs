@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react';
 
-import HookUseState from './Hook/HookUseState';
+import Hooks from './Hook/Hooks';
 import HookMultiState from './Hook/HookMultiState';
 
 const App = () => {
     return ( 
         <div>
-            <HookUseState />
+            <Hooks />
             <HookMultiState />
         </div> 
     );
