@@ -123,7 +123,7 @@ export default HookMultiState;
   - Clean-Up을 이용하지 않는 Effects
   - Clean-Up을 이용하는 Effects
 
-![ComponentLifeCycle][../public/img/componentLifeCycle.png]
+![ComponentLifeCycle][https://github.com/hyomee/reactjs/blob/master/public/img/componentLifeCycle.png]
 
 
 #### 4-1. useEffext 적용
